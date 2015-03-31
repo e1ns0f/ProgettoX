@@ -211,4 +211,59 @@
 		input << "           ! 21 May 2014:       added simple inhibition for large HCs" << std::endl;
 		input.close();
 	}
+
+	{
+		std::ofstream input;
+		std::string name = "input/INTPARMS.DAT";
+		const char *path = name.c_str();
+		remove(path);
+		input.open(path,std::ios::out);
+		input << "! This file contains parameters for the discretization and for the solver" << std::endl;
+		input << "! Do not delete the whitespaces before and after the '='. At least one" << std::endl;
+		input << "! whitespace in each case is needed." << std::endl;
+		input << " " << std::endl;
+		input << "NPARAM = 12                   ! Number of parameters to be defined in this file" << std::endl;
+		input << "" << std::endl;
+		input << "ISTART = -3                   ! initialization mode:" << std::endl;
+		input << "                              ! =+1 from previous solution," << std::endl;
+		input << "                              ! =-1 steady-state solution," << std::endl;
+		input << "                              ! =-2 with set Ts & NH3 coverage, cubic spline interpolation" << std::endl;
+		input << "                              ! =-3 with set Ts & NH3 coverage, linear interpolation" << std::endl;
+		input << " " << std::endl;
+		input << "INLET_FILENAME = FINAL.RIS    ! Filename for inlet conditions (if ISTART=+1)" << std::endl;
+		input << " " << std::endl;
+		input << "IADVANCED = -1                ! Index for the customization of integration parameters:" << std::endl;
+		input << "                              ! =0 use a predifined set of parameters chosen through METHOD," << std::endl;
+		input << "                              ! =+1 use integration parameters set in ADVANCEDPARMS.DAT" << std::endl;
+		input << " " << std::endl;
+		input << "METHOD = FAST-LOWDIM          ! Method of integration: FAST-LOWDIM, FAST, NORMAL or ACCURATE (increasing number of discretization points)" << std::endl;
+		input << " " << std::endl;
+		input << "! Choose what output files the model will print (1/0 = yes/no); OUTLET.RIS and FINAL.RIS are printed by default" << std::endl;
+		input << " " << std::endl;
+		input << "AXIAL.RIS = 1        ! File containing axial profiles at each time step" << std::endl;
+		input << " " << std::endl;
+		input << "RADIAL.RIS = 0       ! File containing radial profiles at each axial knot, at each time step" << std::endl;
+		input << " " << std::endl;
+		input << "RADIAL3D.RIS = 0     ! File used for the creation of MATLAB movies" << std::endl;
+		input << " " << std::endl;
+		input << "RATESOUTPUT.RIS = 1  ! File used for the output of reaction rates, also with AVERAGERATES.RIS" << std::endl;
+		input << " " << std::endl;
+		input << "SIMPAR.RIS = 1       ! File documenting all the simulation options used in the current run" << std::endl;
+		input << " " << std::endl;
+		input << "YOFFSETS.TXT = 0     ! Debug only - File containing the offset of each variable in Y" << std::endl;
+		input << " " << std::endl;
+		input << "INTERPOLATEDPROFILE.RIS = 1 ! Only printed when ISTART = -2" << std::endl;
+		input << " " << std::endl;
+		input << "FILEEND" << std::endl;
+		input << " " << std::endl;
+		input << "PRINT_FREQUENCY = 200		  ! Print output files with a given frequency [s]" << std::endl;
+		input << " " << std::endl;
+		input << "THRESHOLD_SLIP = 10.D0        ! Threshold slip NH3 [ppm] (optional)" << std::endl;
+		input.close();
+	}
+
+
+
+
+
 }

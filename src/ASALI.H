@@ -13,6 +13,8 @@
 	input << "#        input file           #" << std::endl;
 	input << "###############################" << std::endl;
 	input << " " << std::endl;
+	input << "Kinetics path           [folder path]" << std::endl;
+	input << " " << std::endl;
 	input << "Volumetric flow rate    10 Nl/min" << std::endl;
 	input << " " << std::endl;
 	input << "Pressure                1 bar" << std::endl;
